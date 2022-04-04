@@ -8,7 +8,7 @@ const products = [
         image: [
             "https://http2.mlstatic.com/D_NQ_NP_600817-MLA43594116976_092020-O.webp",
         ]
-        },
+    },
     {
         id: 2,
         category: "COLOMBIA 500 gs",
