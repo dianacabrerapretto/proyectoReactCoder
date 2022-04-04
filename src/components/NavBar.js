@@ -1,13 +1,11 @@
-import React, {Component} from "react";
 import './NavBar.css';
-import logo from "../img/logo.png";
+import logo from "../assets/logo.png";
 import CartWidget from "./CartWidget";
 
-class NavBar extends React.Component {
-    render(){
+const NavBar = () =>{
     return(
-<nav className="navbar navbar-expand-lg ">
-                <div className="container-fluid">  
+        <nav className="navbar navbar-expand-lg">
+                <div className="container-fluid  bg-light">  
                     <img src={logo} alt="logo" className="logo" /> 
                     <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                         <ul className="navbar-nav">
@@ -34,6 +32,6 @@ class NavBar extends React.Component {
             </nav>
     );
 }
-}
+
 
 export default NavBar;

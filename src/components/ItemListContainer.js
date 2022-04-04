@@ -1,19 +1,29 @@
-import React, {Component} from "react";
-import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
+import { getProducts } from "../utils/products";
 
-const onAdd = (qty) => {
-    alert("You have selected " + qty + " items.");
+//Componente que contiene a los artículos
+const ItemListContainer = () => {
+    const [datos, setProductos] = useState([]);
+
+    //Mostramos una alerta al agregar los items
+    const onAdd = (items) => {
+        alert(`${items} items added to cart`);
+    }
+    
+    useEffect(() => {
+        //Obtenemos los productos con una promesa
+        async function fetchData() {
+            let data = await getProducts();
+            setProductos(data);
+            }
+        fetchData();
+        }, []);
+
+        return (               
+            <ItemList items={datos} initial={1} onAdd={onAdd}/>           
+        );          
 }
 
-class ItemListContainer extends React.Component{
-    render(){
-        return (
-            <div className="table-responsive">
-                {this.props.greeting}
-                <ItemCount stock={5} initial={1} onAdd={onAdd} />
-            </div>
-        );        
-    };  
-}
-
+//Exportamos el componente
 export default ItemListContainer;
