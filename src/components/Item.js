@@ -3,6 +3,10 @@ import ItemCount from "./ItemCount";
 
 export default function Item({ id, category, title, stock, cost, image }) {
 
+    const onAdd = (items) => {
+        alert(`${items} items agregados al carrito`);
+    }
+
     return (
         <Col className="mt-3">
             <Card style={{ width: '18rem' }} key={id} >
@@ -11,7 +15,8 @@ export default function Item({ id, category, title, stock, cost, image }) {
                     <Card.Title className="text-center font-weight-bolder" style={{ color: '#997564' }}>{category}</Card.Title>
                     <Card.Subtitle className="text-center my-4" style={{ color: 'gray' }}>{title}</Card.Subtitle>
                     <Card.Text className="text-center my-4" style={{ color: 'black' }}>ARS {cost}</Card.Text>
-                    <ItemCount />
+                    <ItemCount stock={stock=10} initial={1} onAdd={onAdd}/>
+                    <Card.Text className="text-center mt-2">Stock: {stock}</Card.Text>
                 </Card.Body>
             </Card>
         </Col>
