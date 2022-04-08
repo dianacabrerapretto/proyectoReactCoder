@@ -4,8 +4,6 @@ import React from "react";
 import { CardContent } from "@material-ui/core";
 
 const ItemDetail = ({ id, title, desc, stock, cost, brand, image }) => {
-
-    //Mostramos una alerta al agregar los items
     const onAdd = (items) => {
         alert(`${items} items added to cart`);
     }
@@ -21,7 +19,7 @@ const ItemDetail = ({ id, title, desc, stock, cost, brand, image }) => {
                         <Card.Header className="text-center font-weight-bolder" style={{ color : 'blue'}}>{title}</Card.Header>
                         <Card.Body> 
                             <Card.Text className="font-weight-bolder"> {desc}</Card.Text>                     
-                            <Card.Text className="fs-3 fw-bold" style={{ color : 'red' }}>USD: {cost}</Card.Text>                                                       
+                            <Card.Text className="fs-3 fw-bold" style={{ color : 'red' }}>ARS {cost}</Card.Text>                                                       
                             <CardContent className="align-items-right">
                                 <Row>
                                     <Col>
