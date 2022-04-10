@@ -1,4 +1,4 @@
-import { Col, Card, CardImg } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 
 export default function Item({ id, category, title, stock, cost, image }) {
@@ -15,7 +15,7 @@ export default function Item({ id, category, title, stock, cost, image }) {
                     <Card.Title className="text-center font-weight-bolder" style={{ color: '#997564' }}>{category}</Card.Title>
                     <Card.Subtitle className="text-center my-4" style={{ color: 'gray' }}>{title}</Card.Subtitle>
                     <Card.Text className="text-center my-4" style={{ color: 'black' }}>ARS {cost}</Card.Text>
-                    <ItemCount stock={stock=10} initial={1} onAdd={onAdd}/>
+                    <ItemCount stock={stock = 10} initial={1} onAdd={onAdd} />
                     <Card.Text className="text-center mt-2">Stock: {stock}</Card.Text>
                 </Card.Body>
             </Card>
