@@ -1,6 +1,6 @@
 import ItemCount from './ItemCount';
 import ItemList from './ItemList';
-import { Wrapper } from './styledComponents';
+import { Wrapper } from './Styles';
 import customFetch from "../utils/customFetch";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';

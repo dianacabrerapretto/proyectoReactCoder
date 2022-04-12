@@ -2,20 +2,19 @@ import styled from "styled-components";
 
 //NavBar
 const Wrapper = styled.div`
-    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 `;
 
 const Left = styled.div`
-    flex: 1;
+flex: 1;
     display: flex;
     align-items: center;
 `;
 
 const Center = styled.div`
-    flex: 1;
+flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,16 +121,16 @@ const Icon = styled.div`
 
 
 //ItemDetail
-const DetailContainer = styled.div`
+const MainContainer = styled.div`
 
 `;
 
-const WrapperDetail = styled.div`
+const BoxDetail = styled.div`
     padding: 50px;
     display: flex;
 `;
 
-const ImgContainer = styled.div`
+const ImageBox = styled.div`
     flex: 1;
 
 `;
@@ -142,7 +141,7 @@ const ImageDetail = styled.img`
     object-fit: cover;
 `;
 
-const InfoContainer = styled.div`
+const DetailContainer = styled.div`
     flex: 1;
     padding: 0px 50px;
 `;
@@ -165,5 +164,5 @@ export {
     ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
-    DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price
+    MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price
 }
