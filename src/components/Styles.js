@@ -154,14 +154,14 @@ const Desc = styled.p`
     margin: 20px 0px;
 `;
 
-const Price  = styled.span`
+const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
 `;
 
-export { 
-    Wrapper, Logo, MenuItem, Left, Center, Right, 
-    ProductAmountContainer, ProductAmount, 
+export {
+    Wrapper, Logo, MenuItem, Left, Center, Right,
+    ProductAmountContainer, ProductAmount,
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
     MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price

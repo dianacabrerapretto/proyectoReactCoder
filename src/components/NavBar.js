@@ -6,9 +6,9 @@ const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid  bg-light">
-                <p  className="brand">
-            <img src={logo} alt="logo"  className="logo" />GALLA CAFE </p>
-    <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <p className="brand">
+                    <img src={logo} alt="logo" className="logo" />GALLA CAFE </p>
+                <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link active mx-2" aria-current="page" href="#">BRASIL</a>
