@@ -1,25 +1,35 @@
-import ItemCount from "./ItemCount";
-import Card from "react-bootstrap/Card";
-import CardGroup from 'react-bootstrap/CardGroup';
-
+import ItemCount from './ItemCount';
+import { DetailContainer, WrapperDetail, ImgContainer, ImageDetail, InfoContainer, Title, Desc, Price } from './styledComponents';
 
 const ItemDetail = ({ item }) => {
-    const onAdd = (item) => {
-        alert(`${item} items agregados al carrito`);
+
+    const onAdd = (qty) => {
+        alert( qty + " items agregados al carrito");
     }
+
     return (
-        <CardGroup>
-            <Card>
-                <Card.Img src={item.image} alt="" />
-            </Card>
-            <Card className="text-center" style={{ width: 'auto' }}>
-                <Card.Text className="fw-bold" style={{ color: '#997564' }}>{item.category}</Card.Text>
-                <Card.Text > {item.description}</Card.Text>
-                <Card.Text className="fw-bold" style={{ color: 'gray' }}>ARS {item.price}</Card.Text>
-                <Card.Text >Stock disponible: {item.stock}</Card.Text>
+        <>
+        {
+            item && item.image
+            ? 
+            <DetailContainer>
+                <WrapperDetail>
+                    <ImgContainer>
+                        <ImageDetail src={item.image[0]} />
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.name}</Title>
+                        <Desc>{item.description}</Desc>
+                        <Price>$ {item.cost}</Price>
+                        <Desc>{item.stock} unidades en stock</Desc>
+                    </InfoContainer>
                     <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
-            </Card>
-        </CardGroup>
+                </WrapperDetail>
+            </DetailContainer>
+            : <p>Cargando...</p>
+        }
+        </>
     );
 }
+
 export default ItemDetail;

@@ -1,25 +1,35 @@
-import ItemList from "./ItemList";
-import { useEffect, useState } from "react";
-import { getProducts } from "../utils/products";
-
+import ItemCount from './ItemCount';
+import ItemList from './ItemList';
+import { Wrapper } from './styledComponents';
+import customFetch from "../utils/customFetch";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+const { products } = require('../utils/products');
 
 const ItemListContainer = () => {
-    const [datos, setProductos] = useState([]);
+    const [datos, setDatos] = useState([]);
+    const { idCategory } = useParams();
 
-    const onAdd = (items) => {
-        alert(`${items} items added to cart`);
-    }
+    console.log(idCategory);
 
     useEffect(() => {
-        async function fetchData() {
-            let data = await getProducts();
-            setProductos(data);
-        }
-        fetchData();
-    }, []);
+        customFetch(2000, products.filter(item => {
+            if (idCategory === undefined) return item;
+            return item.categoryId === parseInt(idCategory)
+        }))
+            .then(result => setDatos(result))
+            .catch(err => console.log(err))
+    }, [datos]);
+
+    const onAdd = (qty) => {
+        alert(qty + " items agregados al carrito");
+    }
 
     return (
-        <ItemList items={datos} initial={1} onAdd={onAdd} />
+        <>  
+            <ItemList items={datos} />
+            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        </>
     );
 }
 
