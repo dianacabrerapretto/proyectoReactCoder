@@ -1,4 +1,5 @@
 import ItemCount from './ItemCount';
+import CheckOut from "./CartCheckout";
 import { MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price } from './Styles';
 
 const ItemDetail = ({ item }) => {
@@ -23,7 +24,10 @@ const ItemDetail = ({ item }) => {
                                 <Price>$ {item.cost}</Price>
                                 <Desc>{item.stock} unidades en stock</Desc>
                             </DetailContainer>
-                            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                            {   ItemCount === 0
+                                        ?<ItemCount stock={item.stock} initial={0} onAdd={onAdd}/>
+                                        :<CheckOut />
+                                    }
                         </BoxDetail>
                     </MainContainer>
                     : <p>Cargando...</p>
