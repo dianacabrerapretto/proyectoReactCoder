@@ -7,6 +7,12 @@
     text-decoration: none;
 }
 
-.nav-link {
+.nav-item {
+    text-decoration: none;
+    color: #997564;
+}
+
+.nav-link{
+    text-decoration: none;
     color: #997564;
 }

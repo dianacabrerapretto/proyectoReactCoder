@@ -6,6 +6,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home"
 
+
 const App = () => {
   return (
       <BrowserRouter>
@@ -20,10 +21,12 @@ const App = () => {
   );
 }
 
-        /*
+
+/*
 const App = () => {
   return <Home />;
 };
 */
+
 
 export default App;

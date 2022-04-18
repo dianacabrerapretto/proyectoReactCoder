@@ -1,11 +1,14 @@
 import ItemCount from './ItemCount';
-import CheckOut from "./CartCheckout";
+import CheckOut from "./Checkout";
+import { useState } from "react";
 import { MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price } from './Styles';
 
 const ItemDetail = ({ item }) => {
+    const [itemCount, setItemCount] = useState(0);
 
     const onAdd = (qty) => {
         alert(qty + " items agregados al carrito");
+        setItemCount(qty);
     }
 
     return (

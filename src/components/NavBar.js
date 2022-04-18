@@ -1,8 +1,9 @@
 import './NavBar.css';
 import logo from "../assets/logo.png";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ categoryId }) => {
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid  bg-light">
@@ -10,18 +11,10 @@ const NavBar = () => {
                     <img src={logo} alt="logo" className="logo" />GALLA CAFE </p>
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link active mx-2" aria-current="page" href="#">BRASIL</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link mx-2" href="#">COLOMBIA</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link mx-2" href="#">AFRICA</a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a className="nav-link">ACCESORIOS</a>
-                        </li>
+                        <Link to="/category/BRASIL"><li className='nav-item nav-link mx-2'>BRASIL</li></Link>
+                        <Link to="/category/COLOMBIA"><li className='nav-item nav-link mx-2'>COLOMBIA</li></Link>
+                        <Link to="/category/AFRICA"><li className='nav-item nav-link mx-2'>AFRICA</li></Link>
+                        <Link to="/category/ACCESORIOS"><li className='nav-item nav-link mx-2'>ACCESORIOS</li></Link>
                     </ul>
                 </div>
                 <div class="d-flex">

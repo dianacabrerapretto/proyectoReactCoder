@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useEffect, useState } from 'react';
+import { Add, Remove } from '@material-ui/icons';
 
 const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
     const [count, setCount] = useState(0);

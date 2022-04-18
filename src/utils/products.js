@@ -13,7 +13,7 @@ const products = [
     brandId: 10,
     packingId: null,
     category: {
-      name: "En Grano",
+      name: "BRASIL",
       id: 1
     },
     brand: {
@@ -31,12 +31,12 @@ const products = [
       "https://http2.mlstatic.com/D_NQ_NP_975813-MLA45671981687_042021-O.webp"
     ],
     sales: 0,
-    categoryId: 1,
+    categoryId: 2,
     brandId: 10,
     packingId: null,
     category: {
-      name: "En Grano",
-      id: 1
+      name: "COLOMBIA",
+      id: 2
     },
     brand: {
       id: 10,
@@ -53,12 +53,12 @@ const products = [
       "https://http2.mlstatic.com/D_NQ_NP_782845-MLA48707962871_122021-O.webp"
     ],
     sales: 0,
-    categoryId: 1,
+    categoryId: 3,
     brandId: 10,
     packingId: null,
     category: {
-      name: "En Grano",
-      id: 1
+      name: "AFRICA",
+      id: 3
     },
     brand: {
       id: 10,
@@ -75,12 +75,12 @@ const products = [
       "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/858/872/products/3009_-prenda-francesa-8pc-volturno-glasse1-8230f65acf2a1cfd0c16352584454644-1024-1024.jpg"
     ],
     sales: 0,
-    categoryId: 3,
+    categoryId: 4,
     brandId: 20,
     packingId: null,
     category: {
-      name: "Cafeteras",
-      id: 3
+      name: "ACCESORIOS",
+      id: 4
     },
     brand: {
       id: 20,
@@ -97,12 +97,12 @@ const products = [
       "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/858/872/products/3004-cafetera-italiana-volturno-36912-posillos1-ee1fe826bc1191654516349089567863-640-0.jpg"
     ],
     sales: 0,
-    categoryId: 3,
+    categoryId: 4,
     brandId: 20,
     packingId: null,
     category: {
-      name: "Cafeteras",
-      id: 3
+      name: "ACCESORIOS",
+      id: 4
     },
     brand: {
       id: 20,
@@ -119,12 +119,12 @@ const products = [
       "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/858/872/products/16340702307651-43d1cde4ed2568896a16352597735354-640-0.png"
     ],
     sales: 0,
-    categoryId: 3,
+    categoryId: 4,
     brandId: 21,
     packingId: null,
     category: {
-      name: "Cafeteras",
-      id: 1
+      name: "ACCESORIOS",
+      id: 4
     },
     brand: {
       id: 21,
