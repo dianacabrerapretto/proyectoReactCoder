@@ -2,7 +2,8 @@ import ItemCount from './ItemCount';
 import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
-import { Button } from '@material-ui/core';
+
+import { Button } from "react-bootstrap";
 import { MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price } from './Styles';
 
 const ItemDetail = ({ item }) => {
@@ -34,7 +35,7 @@ const ItemDetail = ({ item }) => {
                             {
                         itemCount === 0
                         ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Link to='/cart' style={{textDecoration: "none"}}><Button variant="contained" color="secondary">CheckOut</Button></Link>
+                        : <Link to='/cart' style={{textDecoration: "none"}}><Button variant="outline-success">CheckOut</Button></Link>
                     }
                         </BoxDetail>
                     </MainContainer>

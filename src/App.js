@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "./components/Cart";
+import CartContextProvider from "./components/CartContext";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
-import Home from "./pages/Home"
+
 
 
 const App = () => {
   return (
+    <CartContextProvider>
       <BrowserRouter>
           <NavBar />
           <Routes>
@@ -18,15 +20,8 @@ const App = () => {
               <Route path='/cart' element={<Cart />} />
           </Routes>
       </BrowserRouter>
+      </CartContextProvider>
   );
 }
-
-
-/*
-const App = () => {
-  return <Home />;
-};
-*/
-
 
 export default App;

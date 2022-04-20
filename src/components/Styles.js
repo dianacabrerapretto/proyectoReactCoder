@@ -46,7 +46,7 @@ const ProductAmountContainer = styled.div`
 `;
 
 const ProductAmount = styled.div`
-    font-size: 24px;
+    font-size: 18px;
     margin: 5px;
 `;
 
@@ -156,13 +156,65 @@ const Desc = styled.p`
 
 const Price = styled.span`
     font-weight: 100;
-    font-size: 40px;
+    font-size: 30px;
 `;
 
-export {
-    Wrapper, Logo, MenuItem, Left, Center, Right,
-    ProductAmountContainer, ProductAmount,
+//Cart
+const BoxCart = styled.div`
+    padding: 20px;
+`;
+
+const TitleCart = styled.h1`
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+`;
+
+const ContentCart = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Product = styled.div`
+  display: flex;
+`;
+
+const ProductDetail = styled.div`
+  flex: 2;
+  display: flex;
+`;
+
+const ImageCart = styled.img`
+  width: 200px;
+`;
+
+const Details = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+
+const PriceDetail = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+`;
+
+const ProductPrice = styled.div`
+  font-size: 20px;
+  font-weight: 200;
+`;
+
+export { 
+    Wrapper, Logo, MenuItem, Left, Center, Right, 
+    ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
-    MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price
+    MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price,
+    BoxCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice
 }
