@@ -12,7 +12,11 @@
     color: #997564;
 }
 
-.nav-link{
+.nav-item a{
+    text-decoration: none;
+}
+
+.nav-link {
     text-decoration: none;
     color: #997564;
 }

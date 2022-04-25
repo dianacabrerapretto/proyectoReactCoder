@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import { BoxCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductAmountContainer, ProductAmount, ProductPrice, Hr } from './Styles';
 
 import styled from "styled-components";
+import FormatNumber from "../utils/FormatNumber";
+
 
 const Top = styled.div`
   display: flex;
@@ -17,6 +19,31 @@ const TopText = styled.span`
   margin: 0px 10px;
   color: gray;
 `;
+
+const Summary = styled.div`
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+`;
+
+const SummaryTitle = styled.h1`
+  font-weight: 200;
+`;
+
+const SummaryItem = styled.div`
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: ${(props) => props.type === "total" && "500"};
+  font-size: ${(props) => props.type === "total" && "24px"};
+`;
+
+const SummaryItemText = styled.span``;
+
+const SummaryItemPrice = styled.span``;
+
 
 const Cart = () => {
     const test = useContext(CartContext);
@@ -34,7 +61,7 @@ const Cart = () => {
             </Top>
             <ContentCart>
                     {
-                        test.cartList.length > 0 ? 
+                        test.cartList.length > 0 &&
                         test.cartList.map(item => 
                         <Product key={item.idItem}>
                         <ProductDetail>
@@ -54,8 +81,30 @@ const Cart = () => {
                         </PriceDetail>
                         </Product>
                         )
-                        : <TitleCart></TitleCart>
                     }
+                    {
+                    test.cartList.length > 0 &&
+                        <Summary>
+                            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                            <SummaryItem>
+                                <SummaryItemText>Subtotal</SummaryItemText>
+                                <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Taxes</SummaryItemText>
+                                <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Taxes Discount</SummaryItemText>
+                                <SummaryItemPrice><FormatNumber number={-test.calcTaxes()} /></SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem type="total">
+                                <SummaryItemText>Total</SummaryItemText>
+                                <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
+                            </SummaryItem>
+                            <Button>CHECKOUT NOW</Button>
+                        </Summary>
+                }
             </ContentCart>
         </BoxCart>
     );
