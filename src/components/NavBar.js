@@ -11,10 +11,10 @@ const NavBar = ({ categoryId }) => {
                     <img src={logo} alt="logo" className="logo" />GALLA CAFE </p>
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul className="navbar-nav">
-                        <Link to="/category/BRASIL"><li className='nav-item nav-link mx-2'>BRASIL</li></Link>
-                        <Link to="/category/COLOMBIA"><li className='nav-item nav-link mx-2'>COLOMBIA</li></Link>
-                        <Link to="/category/AFRICA"><li className='nav-item nav-link mx-2'>AFRICA</li></Link>
-                        <Link to="/category/ACCESORIOS"><li className='nav-item nav-link mx-2'>ACCESORIOS</li></Link>
+                        <Link to="/category/1" style={{textDecoration: "none"}}><li className='nav-item nav-link mx-2'>BRASIL</li></Link>
+                        <Link to="/category/2" style={{textDecoration: "none"}}><li className='nav-item nav-link mx-2'>COLOMBIA</li></Link>
+                        <Link to="/category/3" style={{textDecoration: "none"}}><li className='nav-item nav-link mx-2'>AFRICA</li></Link>
+                        <Link to="/category/4" style={{textDecoration: "none"}}><li className='nav-item nav-link mx-2'>ACCESORIOS</li></Link>
                     </ul>
                 </div>
                 <div class="d-flex">

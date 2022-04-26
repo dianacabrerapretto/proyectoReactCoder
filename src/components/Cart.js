@@ -30,6 +30,7 @@ const Summary = styled.div`
 
 const SummaryTitle = styled.h1`
   font-weight: 200;
+  font-size: 30px;
 `;
 
 const SummaryItem = styled.div`
@@ -85,24 +86,24 @@ const Cart = () => {
                     {
                     test.cartList.length > 0 &&
                         <Summary>
-                            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                            <SummaryTitle>DETALLE DEL PEDIDO</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
-                                <SummaryItemText>Taxes</SummaryItemText>
+                                <SummaryItemText>Impuestos</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
-                                <SummaryItemText>Taxes Discount</SummaryItemText>
-                                <SummaryItemPrice><FormatNumber number={-test.calcTaxes()} /></SummaryItemPrice>
+                                <SummaryItemText>Descuentos</SummaryItemText>
+                                <SummaryItemPrice><FormatNumber number={-test.calcPromo()} /></SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem type="total">
                                 <SummaryItemText>Total</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
                             </SummaryItem>
-                            <Button>CHECKOUT NOW</Button>
+                            <Button variant="secondary" size="lg">CONFIRMAR COMPRA</Button>
                         </Summary>
                 }
             </ContentCart>
