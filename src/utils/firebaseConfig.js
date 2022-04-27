@@ -1,14 +1,16 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDiF9x2ff2TxAtRnsx9J20AG8kKu9oMRVY",
-  authDomain: "ecomm16980.firebaseapp.com",
-  projectId: "ecomm16980",
-  storageBucket: "ecomm16980.appspot.com",
-  messagingSenderId: "934953575945",
-  appId: "1:934953575945:web:7d24fd78827b35bd7afad8"
+    apiKey: "AIzaSyBb1BQ1UR43ei7ud-eF7pJaRmUIqX98qRI",
+    authDomain: "coderproyectcoffee.firebaseapp.com",
+    projectId: "coderproyectcoffee",
+    storageBucket: "coderproyectcoffee.appspot.com",
+    messagingSenderId: "257625243880",
+    appId: "1:257625243880:web:b855be7b2e1cdd20b4895d"
 };
 
 // Initialize Firebase
