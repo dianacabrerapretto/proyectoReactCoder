@@ -31,7 +31,7 @@ const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
                     {
                         stock
                             ? <Button className="mx-1" variant="outline-secondary" size="sm" onClick={() => onAdd(count)}>Agregar al Carrito</Button>
-                            : <Button variant="outline-secondary"  size="sm" disabled>Agregar al carrito</Button>
+                            : <Button variant="outline-secondary"  size="sm" disabled>Agregar al Carrito</Button>
                     }
                 </Card.Body>
             </Card>
