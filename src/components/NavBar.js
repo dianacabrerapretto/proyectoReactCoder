@@ -20,7 +20,7 @@ const NavBar = ({ categoryId }) => {
                 <div class="d-flex">
                     <a className="nav-link" href="#">Registrarse</a>
                     <a className="nav-link" href="#">Iniciar Sesión</a>
-                    <CartWidget />
+                    <Link to='/cart' style={{textDecoration: "none", color: "white"}}><CartWidget /></Link>
                 </div>
             </div>
         </nav>
