@@ -2,7 +2,6 @@ import ItemCount from './ItemCount';
 import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
-
 import { Button } from "react-bootstrap";
 import { MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price } from './Styles';
 
@@ -18,13 +17,12 @@ const ItemDetail = ({ item }) => {
 
     return (
         <>
-            {
-                item && item.image
+            {item && item.image
                     ?
                     <MainContainer>
                         <BoxDetail>
                             <ImageBox>
-                                <ImageDetail src={item.image[0]} />
+                                <ImageDetail src={item.image} />
                             </ImageBox>
                             <DetailContainer>
                                 <Title>{item.name}</Title>

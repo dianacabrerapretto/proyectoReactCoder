@@ -7,7 +7,8 @@ import { BoxCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Det
 import styled from "styled-components";
 import FormatNumber from "../utils/FormatNumber";
 
-
+import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
+import db from '../utils/firebaseConfig';
 
 const Top = styled.div`
   display: flex;
@@ -50,6 +51,48 @@ const SummaryItemPrice = styled.span``;
 const Cart = () => {
     const test = useContext(CartContext);
 
+    const createOrder = () => {
+        const itemsForDB = test.cartList.map(item => ({
+          id: item.idItem,
+          title: item.nameItem,
+          price: item.costItem
+        }));
+    
+        test.cartList.forEach(async (item) => {
+          const itemRef = doc(db, "products", item.idItem);
+          await updateDoc(itemRef, {
+            stock: increment(-item.qtyItem)
+          });
+        });
+    
+        let order = {
+          buyer: {
+            name: "Leo Messi",
+            email: "leo@messi.com",
+            phone: "123456789"
+          },
+          total: test.calcTotal(),
+          items: itemsForDB,
+          date: serverTimestamp()
+        };
+      
+        console.log(order);
+
+        const createOrderInFirestore = async () => {
+            // Add a new document with a generated id
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+          }
+        
+          createOrderInFirestore()
+            .then(result => alert('Your order has been created. Please take note of the ID of your order.\n\n\nOrder ID: ' + result.id + '\n\n'))
+            .catch(err => console.log(err));
+        
+          test.removeList();
+        
+        }
+
     return (
         <BoxCart>
             <TitleCart>CARRITO</TitleCart>
@@ -78,8 +121,10 @@ const Cart = () => {
                         <PriceDetail>
                             <ProductAmountContainer>
                             <ProductAmount>{item.qtyItem} item(s)</ProductAmount>
+                            /
+                            <ProductAmount>$ {item.costItem} por Unidad</ProductAmount>
                             </ProductAmountContainer>
-                            <ProductPrice>$ {item.costItem} por Unidad</ProductPrice>
+                            <ProductPrice>$ {test.calcTotalPerItem(item.idItem)} </ProductPrice>
                         </PriceDetail>
                         </Product>
                         )
@@ -104,7 +149,7 @@ const Cart = () => {
                                 <SummaryItemText>Total</SummaryItemText>
                                 <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
                             </SummaryItem>
-                            <Button variant="secondary" size="lg">CONFIRMAR COMPRA</Button>
+                            <Button variant="secondary" size="lg" onClick={createOrder}>CONFIRMAR COMPRA</Button>
                         </Summary>
                 }
             </ContentCart>
