@@ -8,6 +8,7 @@ import styled from "styled-components";
 import FormatNumber from "../utils/FormatNumber";
 
 
+
 const Top = styled.div`
   display: flex;
   align-items: center;
