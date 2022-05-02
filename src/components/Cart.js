@@ -67,9 +67,9 @@ const Cart = () => {
     
         let order = {
           buyer: {
-            name: "Leo Messi",
-            email: "leo@messi.com",
-            phone: "123456789"
+            name: "Juan Perez",
+            email: "juanperez@gmail.com",
+            phone: "3547892467"
           },
           total: test.calcTotal(),
           items: itemsForDB,
@@ -79,14 +79,13 @@ const Cart = () => {
         console.log(order);
 
         const createOrderInFirestore = async () => {
-            // Add a new document with a generated id
             const newOrderRef = doc(collection(db, "orders"));
             await setDoc(newOrderRef, order);
             return newOrderRef;
           }
         
           createOrderInFirestore()
-            .then(result => alert('Your order has been created. Please take note of the ID of your order.\n\n\nOrder ID: ' + result.id + '\n\n'))
+            .then(result => alert('Hemos recibido tu compra. Por favor conserva el código de orden\n\n\nOrden: ' + result.id + '\n\n'))
             .catch(err => console.log(err));
         
           test.removeList();
