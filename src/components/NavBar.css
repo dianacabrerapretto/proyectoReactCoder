@@ -1,10 +1,15 @@
 .logo {
-    width: 10%;
+    width: 40%;
+    padding-top: 15px;
 }
 
 .brand {
     color: #997564;
     text-decoration: none;
+}
+
+.container-fluid{
+    background-color: #f3f3f3;
 }
 
 .nav-item {

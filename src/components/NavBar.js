@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid  bg-light">
+            <div className="container-fluid">
                 <p className="brand">
-                    <img src={logo} alt="logo" className="logo" />GALLA CAFE </p>
+                    <img src={logo} alt="logo" className="logo" /></p>
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <Link to='/category/1' style={{ textDecoration: "none" }}><li className='nav-item nav-link mx-2'>BRASIL</li></Link>
