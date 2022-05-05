@@ -212,9 +212,9 @@ const ProductPrice = styled.div`
 `;
 
 
-export { 
-    Wrapper, Logo, MenuItem, Left, Center, Right, 
-    ProductAmountContainer, ProductAmount, 
+export {
+    Wrapper, Logo, MenuItem, Left, Center, Right,
+    ProductAmountContainer, ProductAmount,
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
     MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price,

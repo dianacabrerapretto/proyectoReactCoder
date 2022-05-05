@@ -49,111 +49,111 @@ const SummaryItemPrice = styled.span``;
 
 
 const Cart = () => {
-    const test = useContext(CartContext);
+  const test = useContext(CartContext);
 
-    const createOrder = () => {
-        const itemsForDB = test.cartList.map(item => ({
-          id: item.idItem,
-          title: item.nameItem,
-          price: item.costItem
-        }));
-    
-        test.cartList.forEach(async (item) => {
-          const itemRef = doc(db, "products", item.idItem);
-          await updateDoc(itemRef, {
-            stock: increment(-item.qtyItem)
-          });
-        });
-    
-        let order = {
-          buyer: {
-            name: "Juan Perez",
-            email: "juanperez@gmail.com",
-            phone: "3547892467"
-          },
-          total: test.calcTotal(),
-          items: itemsForDB,
-          date: serverTimestamp()
-        };
-      
-        console.log(order);
+  const createOrder = () => {
+    const itemsForDB = test.cartList.map(item => ({
+      id: item.idItem,
+      title: item.nameItem,
+      price: item.costItem
+    }));
 
-        const createOrderInFirestore = async () => {
-            const newOrderRef = doc(collection(db, "orders"));
-            await setDoc(newOrderRef, order);
-            return newOrderRef;
-          }
-        
-          createOrderInFirestore()
-            .then(result => alert('Hemos recibido tu compra. Por favor conserva el código de orden\n\n\nOrden: ' + result.id + '\n\n'))
-            .catch(err => console.log(err));
-        
-          test.removeList();
-        
+    test.cartList.forEach(async (item) => {
+      const itemRef = doc(db, "products", item.idItem);
+      await updateDoc(itemRef, {
+        stock: increment(-item.qtyItem)
+      });
+    });
+
+    let order = {
+      buyer: {
+        name: "Juan Perez",
+        email: "juanperez@gmail.com",
+        phone: "3547892467"
+      },
+      total: test.calcTotal(),
+      items: itemsForDB,
+      date: serverTimestamp()
+    };
+
+    console.log(order);
+
+    const createOrderInFirestore = async () => {
+      const newOrderRef = doc(collection(db, "orders"));
+      await setDoc(newOrderRef, order);
+      return newOrderRef;
+    }
+
+    createOrderInFirestore()
+      .then(result => alert('Hemos recibido tu compra. Por favor conserva el código de orden\n\n\nOrden: ' + result.id + '\n\n'))
+      .catch(err => console.log(err));
+
+    test.removeList();
+
+  }
+
+  return (
+    <BoxCart>
+      <TitleCart>CARRITO</TitleCart>
+      <Top>
+        <Link to='/'><Button variant="outline-secondary" size="sm">CONTINUAR COMPRANDO</Button></Link>
+        {
+          (test.cartList.length > 0)
+            ? <Button variant="outline-secondary" size="sm" type="filled" onClick={test.removeList}>ELIMINAR TODOS LOS PRODUCTOS</Button>
+            : <TopText>Carrito Vacío</TopText>
         }
-
-    return (
-        <BoxCart>
-            <TitleCart>CARRITO</TitleCart>
-            <Top>
-                <Link to='/'><Button variant="outline-secondary" size="sm">CONTINUAR COMPRANDO</Button></Link>
-                {
-                    (test.cartList.length > 0)
-                    ? <Button variant="outline-secondary" size="sm" type="filled" onClick={test.removeList}>ELIMINAR TODOS LOS PRODUCTOS</Button>
-                    : <TopText>Carrito Vacío</TopText>
-                }
-            </Top>
-            <ContentCart>
-                    {
-                        test.cartList.length > 0 &&
-                        test.cartList.map(item => 
-                        <Product key={item.idItem}>
-                        <ProductDetail>
-                            <ImageCart src={item.imgItem} />
-                            <Details>
-                            <span>
-                                <b>Producto:</b> {item.nameItem}
-                            </span>
-                            <Button variant="outline-secondary" size="sm" type="filled" onClick={() => test.deleteItem(item.idItem)}>ELIMINAR</Button>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                            <ProductAmount>{item.qtyItem} item(s)</ProductAmount>
-                            /
-                            <ProductAmount>$ {item.costItem} por Unidad</ProductAmount>
-                            </ProductAmountContainer>
-                            <ProductPrice>$ {test.calcTotalPerItem(item.idItem)} </ProductPrice>
-                        </PriceDetail>
-                        </Product>
-                        )
-                    }
-                    {
-                    test.cartList.length > 0 &&
-                        <Summary>
-                            <SummaryTitle>DETALLE DEL PEDIDO</SummaryTitle>
-                            <SummaryItem>
-                                <SummaryItemText>Subtotal</SummaryItemText>
-                                <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
-                            </SummaryItem>
-                            <SummaryItem>
-                                <SummaryItemText>Impuestos</SummaryItemText>
-                                <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
-                            </SummaryItem>
-                            <SummaryItem>
-                                <SummaryItemText>Descuentos</SummaryItemText>
-                                <SummaryItemPrice><FormatNumber number={-test.calcPromo()} /></SummaryItemPrice>
-                            </SummaryItem>
-                            <SummaryItem type="total">
-                                <SummaryItemText>Total</SummaryItemText>
-                                <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
-                            </SummaryItem>
-                            <Button variant="secondary" size="lg" onClick={createOrder}>CONFIRMAR COMPRA</Button>
-                        </Summary>
-                }
-            </ContentCart>
-        </BoxCart>
-    );
+      </Top>
+      <ContentCart>
+        {
+          test.cartList.length > 0 &&
+          test.cartList.map(item =>
+            <Product key={item.idItem}>
+              <ProductDetail>
+                <ImageCart src={item.imgItem} />
+                <Details>
+                  <span>
+                    <b>Producto:</b> {item.nameItem}
+                  </span>
+                  <Button variant="outline-secondary" size="sm" type="filled" onClick={() => test.deleteItem(item.idItem)}>ELIMINAR</Button>
+                </Details>
+              </ProductDetail>
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <ProductAmount>{item.qtyItem} item(s)</ProductAmount>
+                  /
+                  <ProductAmount>$ {item.costItem} por Unidad</ProductAmount>
+                </ProductAmountContainer>
+                <ProductPrice>$ {test.calcTotalPerItem(item.idItem)} </ProductPrice>
+              </PriceDetail>
+            </Product>
+          )
+        }
+        {
+          test.cartList.length > 0 &&
+          <Summary>
+            <SummaryTitle>DETALLE DEL PEDIDO</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice><FormatNumber number={test.calcSubTotal()} /></SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Impuestos</SummaryItemText>
+              <SummaryItemPrice><FormatNumber number={test.calcTaxes()} /></SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Descuentos</SummaryItemText>
+              <SummaryItemPrice><FormatNumber number={-test.calcPromo()} /></SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice><FormatNumber number={test.calcTotal()} /></SummaryItemPrice>
+            </SummaryItem>
+            <Button variant="secondary" size="lg" onClick={createOrder}>CONFIRMAR COMPRA</Button>
+          </Summary>
+        }
+      </ContentCart>
+    </BoxCart>
+  );
 }
 
 export default Cart;

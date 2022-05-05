@@ -18,26 +18,26 @@ const ItemDetail = ({ item }) => {
     return (
         <>
             {item && item.image
-                    ?
-                    <MainContainer>
-                        <BoxDetail>
-                            <ImageBox>
-                                <ImageDetail src={item.image} />
-                            </ImageBox>
-                            <DetailContainer>
-                                <Title>{item.name}</Title>
-                                <Desc>{item.description}</Desc>
-                                <Price>$ {item.cost}</Price>
-                                <Desc>{item.stock} unidades en stock</Desc>
-                            </DetailContainer>
-                            {
-                        itemCount === 0
-                        ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-                        : <Link to='/cart' style={{textDecoration: "none"}}><Button variant="secondary">CheckOut</Button></Link>
-                    }
-                        </BoxDetail>
-                    </MainContainer>
-                    : <p>Cargando...</p>
+                ?
+                <MainContainer>
+                    <BoxDetail>
+                        <ImageBox>
+                            <ImageDetail src={item.image} />
+                        </ImageBox>
+                        <DetailContainer>
+                            <Title>{item.name}</Title>
+                            <Desc>{item.description}</Desc>
+                            <Price>$ {item.cost}</Price>
+                            <Desc>{item.stock} unidades en stock</Desc>
+                        </DetailContainer>
+                        {
+                            itemCount === 0
+                                ? <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
+                                : <Link to='/cart' style={{ textDecoration: "none" }}><Button variant="secondary">CheckOut</Button></Link>
+                        }
+                    </BoxDetail>
+                </MainContainer>
+                : <p>Cargando...</p>
             }
         </>
     );

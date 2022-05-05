@@ -9,7 +9,7 @@ const CartWidget = () => {
 
     return (
         <Badge badgeContent={test.calcItemsQty()} color="primary">
-            <ShoppingCartOutlined color="brown"/>
+            <ShoppingCartOutlined color="brown" />
         </Badge>
     );
 }

@@ -25,7 +25,7 @@ const CartContextProvider = ({ children }) => {
             ]);
         }
     }
-    
+
     const removeList = () => {
         setCartList([]);
     }
@@ -49,8 +49,8 @@ const CartContextProvider = ({ children }) => {
         return calcSubTotal() * 0.21;
     }
 
-    const calcPromo = ()=>{
-        return calcSubTotal() *0.21;
+    const calcPromo = () => {
+        return calcSubTotal() * 0.21;
     }
 
     const calcTotal = () => {
@@ -64,18 +64,18 @@ const CartContextProvider = ({ children }) => {
 
     return (
         <CartContext.Provider value={{
-            cartList, 
-            addToCart, 
-            removeList, 
-            deleteItem, 
-            calcTotalPerItem, 
-            calcSubTotal, 
-            calcTaxes, 
+            cartList,
+            addToCart,
+            removeList,
+            deleteItem,
+            calcTotalPerItem,
+            calcSubTotal,
+            calcTaxes,
             calcPromo,
             calcTotal,
             calcItemsQty
         }}>
-            { children }
+            {children}
         </CartContext.Provider>
     );
 }

@@ -25,13 +25,13 @@ const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
         <div>
             <Card style={{ width: '20rem' }}>
                 <Card.Body>
-                    <Button variant="outline-secondary" size="sm" onClick={decrement}><Add/></Button>
+                    <Button variant="outline-secondary" size="sm" onClick={decrement}><Add /></Button>
                     <span className="mx-3">{count}</span>
-                    <Button variant="outline-secondary" size="sm" onClick={increment}><Remove/></Button>
+                    <Button variant="outline-secondary" size="sm" onClick={increment}><Remove /></Button>
                     {
                         stock
                             ? <Button className="mx-1" variant="outline-secondary" size="sm" onClick={() => onAdd(count)}>Agregar al Carrito</Button>
-                            : <Button variant="outline-secondary"  size="sm" disabled>Agregar al Carrito</Button>
+                            : <Button variant="outline-secondary" size="sm" disabled>Agregar al Carrito</Button>
                     }
                 </Card.Body>
             </Card>

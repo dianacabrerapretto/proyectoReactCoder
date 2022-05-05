@@ -8,7 +8,7 @@ const NavBar = () => {
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
                 <p className="brand">
-                <Link to='/'><img src={logo} alt="logo" className="logo" /></Link></p>
+                    <Link to='/'><img src={logo} alt="logo" className="logo" /></Link></p>
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <Link to='/category/1' style={{ textDecoration: "none" }}><li className='nav-item nav-link mx-2'>BRASIL</li></Link>
