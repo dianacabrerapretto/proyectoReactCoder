@@ -83,7 +83,7 @@ const ProductContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd;
+    background-color: white;
     position: relative;
     &:hover ${Info}{
         opacity: 1;
@@ -105,6 +105,7 @@ const Image = styled.img`
 
 const Icon = styled.div`
     font-size: 12px;
+    color: #997564;
     width: 100px;
     height: 40px;
     background-color: white;
@@ -210,11 +211,12 @@ const ProductPrice = styled.div`
   font-weight: 200;
 `;
 
+
 export { 
     Wrapper, Logo, MenuItem, Left, Center, Right, 
     ProductAmountContainer, ProductAmount, 
     ProductsContainer, ProductContainer,
     Circle, Image, Info, Icon,
     MainContainer, BoxDetail, ImageBox, ImageDetail, DetailContainer, Title, Desc, Price,
-    BoxCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice
+    BoxCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail, ProductPrice,
 }
