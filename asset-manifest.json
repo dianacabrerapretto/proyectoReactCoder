@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/proyectoReactCoder/static/css/main.8e9505cc.css",
+    "main.js": "/proyectoReactCoder/static/js/main.2f90f45c.js",
+    "static/media/banner1.png": "/proyectoReactCoder/static/media/banner1.0fe893f83ec71b0650ce.png",
+    "static/media/banner2.png": "/proyectoReactCoder/static/media/banner2.ba89836144207b419ab8.png",
+    "static/media/banner3.png": "/proyectoReactCoder/static/media/banner3.ab51c8afe8c2b2fca75b.png",
+    "static/media/logo.png": "/proyectoReactCoder/static/media/logo.298596f7208c38d03170.png",
+    "index.html": "/proyectoReactCoder/index.html",
+    "main.8e9505cc.css.map": "/proyectoReactCoder/static/css/main.8e9505cc.css.map",
+    "main.2f90f45c.js.map": "/proyectoReactCoder/static/js/main.2f90f45c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e9505cc.css",
+    "static/js/main.2f90f45c.js"
+  ]
+}
